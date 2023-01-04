@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+		<meta name="description" content="Doa pembuka">
+		<title>Doa pembuka</title>
+		<link rel="shortcut icon" href="assets/images/DK_logo.png" type="image/x-icon">
+		<link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+		<link rel="stylesheet" href="assets/socicon/css/styles.css">
+		<link rel="stylesheet" href="assets/tether/tether.min.css">
+		<link rel="stylesheet" href="assets/animatecss/animate.min.css">
+		<link rel="stylesheet" href="assets/dropdown/css/style.css">
+		<link rel="stylesheet" href="assets/theme/css/style.css">
+		<link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+		<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+		<!-- Docs styles -->
+		<link rel="stylesheet" href="assets/dist/demo/dist/demo.css" />
+		<link rel="stylesheet" href="assets/main_v12.css">
+
+
+		<script src="assets/js/jquery-3.5.1.min.js"></script>
+		<script>
+			function playTranscript() {
+				var dialogueTimings = [],
+				dialogues = document.querySelectorAll('#MyP>p.arabicText'),
+				transcriptWrapper = document.querySelector('#transcriptWrapper'),
+				audio = document.querySelector('#player'),
+				previousDialogueTime = -1;
+
+				var currentDialogueTime = Math.max.apply(Math, dialogueTimings.filter(function (v) {
+					return v <= audio.currentTime
+				}));
+
+				if (previousDialogueTime !== currentDialogueTime) {
+					previousDialogueTime = currentDialogueTime;
+					var currentDialogue = dialogues[dialogueTimings.indexOf(currentDialogueTime)];
+					transcriptWrapper.scrollTop = currentDialogue.offsetTop - 50;
+					var previousDialogue = document.getElementsByClassName('speaking')[0];
+					if (previousDialogue !== undefined) previousDialogue.className = previousDialogue.className.replace('speaking', '');
+					currentDialogue.className += ' speaking';
+				}
+			};
+		</script>
+		<script>
+			function playFrom(t){
+				myAudio=document.getElementById('player');
+				myAudio.currentTime = t;
+				myAudio.play();
+			};
+		</script>
+	</head>
+	<body onmousedown="return false" onselectstart="return false">
+		<style>
+            .progress-container {
+  width: 100%;
+  height: 8px;
+  background: #ccc;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #ad586d;
+  width: 0%;
+}
+            
+            .progress-container.dark-mode {
+  width: 100%;
+  height: 8px;
+  background: #ccc;
+}
+
+.progress-bar.dark-mode {
+  height: 8px;
+  background: #ad586d !important;
+  width: 0%;
+}
+            
+			.dark-mode {
+				background-color: #424242 !important;
+				color: white !important;
+			}
+			a.dark-mode:hover {
+				color: #999999 !important;
+			}
+			.btn-primary.dark-mode {
+				border-color: #ffffff !important;
+			}
+
+			.btn-primary.dark-mode:hover {
+				border-color: transparent !important;
+			}
+			.nav-item.dark-mode a:hover {
+				color: #999999 !important;
+			}
+			.hamburger span.dark-mode {
+				background-color: #ffffff !important;
+			}
+			.navbar-toggler.dark-mode:hover span {
+				background-color: #999999 !important;
+			}
+			.fa {
+				margin: 0;
+				position: fixed;
+				
+				top: 31px;
+				color: #4a5764;
+				border: 1px solid #ccc !important;
+				border-radius: 10px;
+				box-shadow: 0px 4px 10px rgb(0 0 0 / 33%);
+				padding:4px 1px 4px 4px;
+				background: #F8F8F8	;
+				z-index: 9999;
+				left: 94%;
+				cursor: pointer;
+				transform: translate(-50%, -50%);
+				font-size: 22px;
+			}
+
+			.fa:hover {
+				color: #fff;
+				box-shadow: 0px -4px 10px rgb(0 0 0 / 33%);
+				background: #ccc;
+			}
+			.fa.dark-mode {
+				margin: 0;
+				position: fixed;
+				top: 31px;
+				color: #4a5764 !important;
+				border: 1px solid #ccc !important;
+				border-radius: 10px;
+				box-shadow: 0px 4px 10px rgb(255 255 255 / 33%) !important;
+				padding:4px 1px 4px 4px;
+				background: #F8F8F8 !important;
+				z-index: 9999;
+				left: 94%;
+				cursor: pointer;
+				transform: translate(-50%, -50%);
+				font-size: 22px;
+			}
+
+			.fa.dark-mode:hover {
+				color: #fff !important;
+				box-shadow: 0px -4px 10px rgb(255 255 255 / 33%) !important;
+				background: #ccc !important;
+			}
+		</style>
+		<script>
+		$(document).ready(function() {
+			var darkmode = JSON.parse(localStorage.getItem("darkmode"));
+			if (darkmode) {
+				$('body > *').not('.modal').not('.modal *').not('.langSettings').not('.langSettings *').not('.hamburger').not('.icon-custom').addClass("dark-mode");
+				$('body > * *').not('.modal').not('.modal *').not('.langSettings').not('.langSettings *').not('.hamburger').not('.icon-custom').addClass("dark-mode");
+				$('.langSettings').addClass("dark-mode");
+				setTimeout(function() {$('.plyr *').addClass("dark-mode")}, 500);
+				$('.dark-mode-toggler').prop('checked', true);
+			}
+
+			// Dark Mode Toggler
+			$('.dark-mode-toggler').click(function () {
+				if ($(this).is(':checked')) {
+					$('body > *').not('.modal').not('.modal *').not('.langSettings').not('.langSettings *').not('.hamburger').not('.icon-custom').addClass("dark-mode");
+					$('body > * *').not('.modal').not('.modal *').not('.langSettings').not('.langSettings *').not('.hamburger').not('.icon-custom').addClass("dark-mode");
+					$('.langSettings').addClass("dark-mode");
+					localStorage.setItem("darkmode", true);
+				} else {
+					$('.dark-mode').removeClass("dark-mode");
+					localStorage.setItem("darkmode", false);
+				}
+			});
+		});
+		</script>
+ <script>
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
+</script>
+
+
+		<style>
+			.navbar-toggler:hover span {
+				background-color: #800020  !important;
+			}
+			.icon-mosque {
+				background-image: url('data:img/svg;');
+				background-size: 100%;
+				height: 20px;
+				width: 17px;
+				display: inline-block !important;
+			}
+
+			a:hover .icon-mosque {
+				filter: invert(0.3);
+			}
+
+			.dark-mode .icon-mosque {
+				filter: invert(1) !important;
+			}
+
+			a.dark-mode:hover > .icon-mosque {
+				filter: invert(0.61) !important;
+			}
+		</style>
+
+		<section class="menu cid-s4rX0tVglS" once="menu" id="menu2-7">
+			<nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top collapsed bg-color transparent">
+				
+				<div class="menu-logo">
+					<div class="navbar-brand">
+						<span class="navbar-caption-wrap" style="margin-top:0px;"><a class="navbar-caption text-black display-4" href=""><span class="icon-custom icon-mosque"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Opening Dua -<font size="5" face="Islamic"><b> دعاء الإفتتاح</font></b></a></span>
+					</div>
+				</div>
+
+                  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>
+
+			</nav>
+		</section>
+		<!-- Modal -->
+		<!-- The Modal -->
+		<div class="modal langSettingsModal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header" style="height: 50px;">
+					<h4>Settings</h4>
+					<span class="close">&times;</span>
+				</div>
+				<div class="modal-body">
+					<button class="accordion active">Appearance</button>
+					<div class="panel" style="text-align: center; max-height: 44px;">
+						<div class="row">
+							<div class="column left">
+								<label class="switch">
+									<input class="dark-mode-toggler" type="checkbox">
+									<span class="toggle"></span>
+								</label>
+							</div>
+							<div class="column middle" style="text-align: center; white-space: nowrap;">
+								<h5>Dark Mode</h5>
+							</div>
+						</div>
+					</div>
+					<button class="accordion active">Translations</button>
+					<div class="panel" style="text-align: center ; max-height: 415px;">
+						<div class="row">
+							<div class="column left">
+								<label class="switch">
+									<input class="translation-checkbox" type="checkbox" id="translitCheck" data-classes="translit">
+									<span class="toggle"></span>
+								</label>
+							</div>
+							<div class="column middle" style="text-align: center;">
+								<h5>Transliteration</h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column left">
+								<label class="switch">
+									<input class="translation-checkbox" type="checkbox" id="transCheckID" data-classes="transID">
+									<span class="toggle"></span>
+								</label>
+							</div>
+							<div class="column middle" style="text-align: center;">
+								<h5>Bahasa</h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column left">
+								<label class="switch">
+									<input class="translation-checkbox" type="checkbox" id="transCheck" data-classes="trans">
+									<span class="toggle"></span>
+								</label>
+							</div>
+							<div class="column middle" style="text-align: center;">
+								<h5>English</h5>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="column left">
+								<label class="switch">
+									<input class="translation-checkbox" type="checkbox" id="transCheckFR" data-classes="transFR">
+									<span class="toggle"></span>
+								</label>
+							</div>
+							<div class="column middle" style="text-align: center;">
+								<h5>French</h5>
+							</div>
+						</div>
+
+					</div>
+					<button class="accordion active">Font sizes</button>
+					<div class="panel" style="text-align: center; max-height: 92px;">
+						<div class="row">
+							<div class="column left">
+								<h5 id="button2" value="smaller" class="changeFontSize" data-lang="Arabic" data-increment="minus"> &#8854;&nbsp;&nbsp;&nbsp;</h5>
+							</div>
+							<div class="column middle" style="vertical-align: middle;">
+								<h5>Arabic 
+                                <!--    <span class="arabicFontSize fontSize"></span> -->
+                                </h5>
+							</div>
+							<div class="column right">
+								<h5 id="button1" value="larger" class="changeFontSize" data-lang="Arabic" data-increment="plus">&nbsp;&nbsp;&nbsp;&#8853;</h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column left">
+								<h5 id="button4" value="smaller" class="changeFontSize" data-lang="Others" data-increment="minus">&#8854;&nbsp;&nbsp;&nbsp;</h5>
+							</div>
+							<div class="column middle">
+								<h5>Translation 
+                                <!--    <span class="englishFontSize fontSize"></span> -->
+                                </h5>
+							</div>
+							<div class="column right">
+								<h5 id="button3" value="larger" class="changeFontSize" data-lang="Others" data-increment="plus">&nbsp;&nbsp;&nbsp;&#8853;</h5>
+							</div>
+						</div>
+					</div>
+					<button class="accordion active">Arabic font style</button>
+					<div class="panel" style="text-align: center; max-height: 92px;">
+						<div class="row">
+							<div class="column left">
+								<label class="container" >
+									<input type="radio" name="radio" class="changeArabicFont" value="Islamic">
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="column middle" style="text-align: center;">
+								<h5>Uthmani</h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="column left">
+								<label class="container">
+									<input type="radio" name="radio" class="changeArabicFont" value="Indopak">
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="column middle" style="text-align: center;">
+								<h5>IndoPak</h5>
+							</div>
+						</div>
+					</div> 
+				</div>
+				<div class="modal-footer" style="height: 20px;"></div>
+			</div>
+		</div>
+		<!-- Trigger/Open The Modal -->
+		<p class = "fa fa-gear langSettings">&nbsp;</p>
+		<!-- Page header for each individual part ============================================ -->
+		<!-- Opening Dua -->
+		<h1></h1>
+		<div class="part">
+			<h3 dir="ltr"></h3>
+		</div>
+		
+		
+<div id="MyP" translate="no">
+				<p class="lang arabicText" lang="ar" dir="">بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ الحَمْدُ لِلَّهِ رَبِّ العَالَمِينَ، حَسْبِيَ اللهُ وَنِعْمَ الوَكِيلُ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا باللهِ العَلِيِّ العَظِيمِ. <span>اللَّهُمَّ</span> إِنِّي أَبْرَأُ مِنْ حَوْلِي وَقُوَّتِي إِلَى حَوْلِكَ وَقُوَّتِكَ. <span>اللَّهُمَّ</span> إِنِّي أَتَقَرَّبُ إِلَيْكَ بِالصَّلَاةِ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَنَبِيِّكَ وَرَسُولِكَ سَيِّدِ المُرْسَلِينَ صَلَّى اللهُ تَعَالَى وَسَلَّمَ عَلَيْهِ وَعَلَيْهِمْ أَجْمَعِينَ امْتِثَالَاً لِأَمْرِكَ وَتَصْدِيقَاً لَهُ وَمَحَبَّةً فِيهِ وَشَوْقَاً إِلَيْهِ وَتَعْظِيمَاً لِقَدْرِهِ وَلِكَوْنِهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ أَهْلَاً لِذَلِكَ فَتَقَبَّلْهَا مِنِّي بِفَضْلِكَ وَاجْعَلْنِي مِنْ عِبَادِكَ الصَّالِحِينَ وَوَفِّقْنِي لِقِرَاءَتِهَا عَلَى الدَّوَامِ بِجَاهِهِ عِنْدَكَ وَصَلَّى اللهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَآلِهِ وَصَحْبِهِ أَجْمَعِينَ.</p>
+				<p class="lang translit" style="display: none;" lang="en" dir="ltr">Alḥamdu liLlāhi rabbil ʿālamīn, ḥasbiyAllāhu wa niʿmal wakīl wa lā ḥawla wa lā quwwata illā biLlahil ʿaliyyi alʿaẓim. <span>Allāhumma</span> inni abraʾu min ḥawlī wa quwwatī ilā ḥawlika wa quwwatika.
+<span>Allāhumma</span> innī ataqarrabu ilayka biṣṣalāti ʿala sayyidinā Muḥammadin ʿabdika wa nabiyyika wa rasūlika sayyidil mursalīna ṣallAllāhu taʿālā wasallama ʿalayhi waʿalayhim ajmaʿīna imtithālan li amrika wa taṣdīqan lahu wa maḥabbatan fīhi washawqan ilayhi wataʿẓīman liqadrihi walikawnihi ṣallAllahu ʿalayhi wasallama ahlan lidhalika fataqabbalhā minnī bifaḍlika wajʿalnī min ʿibadikaṣ ṣāliḥīna wawaffiqnī liqirāʾatihā ʿalād dawāmi bijāhihi ʿindaka waṣallAllāhu ʿalā sayyidinā Muḥammadin wa ālihi waṣaḥbihi ajmaʿīn.</p>
+				<p class="lang transID" style="display: none;" lang="id" dir="ltr">Dengan menyebut Asma Allah Yang Maha Pengasih
+lagi Maha Penyayang. Dengan menyebut Asma Allah Yang Maha Pengasih lagi Maha Penyayang. Allahlah sebaik-baik Penolong dan sebaik-baik Dzat yang diserahi tiada daya dan kekuatan terkecuali dengan pertolongan Allah Yang Maha Luhur dan Agung. Ya Allah sesungguhnya kami melepaskan diri kami dari daya dan upaya. Kami berlindung pada daya upaya dan kekuatan Engkau ya Allah, sesungguhnya kami bertaqarrub kepada Engkau dengan Shalawat atas junjungan kami Nabi Muhammad HambaMu, NabiMu dan UtusanMu yang menjadi Baginda segala Rasul SAW. Semata-mata mengikuti pada perintah Engkau dan membenarkan kepadanya, Cinta padanya, Rindu kepadanya, mengagungkan pangkatnya, sebab beliau SAW Ahli tentangnya maka terimalah ia dari kami dengan keutamaan Engkau. Jadikanlah kami untuk membacanya dengan rutin demi kemuliaan di sisi Engkau. Dan mudah-mudahan Rahmat Ta'zhim tetap berlimpah atas junjungan kami Nabi Muhammad, Keluarga dan sahabat seluruhnya.</p>
+				<p class="lang trans" style="display: none;" lang="en" dir="ltr">Praise belongs to Allah, the Lord of the Worlds. Allah is enough for me and the best Protector. There is no power nor strength except by Allah, the High, the Immense. O Allah, I relinquish my power and strength in favour of Your power and Your strength. O Allah, I draw near to You by the prayer on Sayyidina Muhammad, Your slave, Prophet and Messenger, the Master of the Messengers, may Allah Almighty bless him and grant him and all of them peace. I do so in obedience to Your command, affirming him, loving him, yearning for him and respecting his worth and the fact that he, may Allah bless him and grant him peace, is worthy of that. Accept it from me by Your grace and make me one of Your righteous slaves. By his rank with You, give me success in reading it (Dala'il Al Khayrat) continuously. May Allah bless Sayyidina Muhammad and his family and all his Companions.</p>
+				<p class="lang transFR" style="display: none;" lang="fr" dir="ltr">Louange à Allah, Seigneur de l'univers. Dieu est suffisant pour moi et Il est mon meilleur protecteur. Il n'y a de puissance ni de force que par Allah, le Haut, l'Immense. Ô Allah, je renonce à ma puissance et à ma force et je m’attache à ta puissance et à ta force. Ô Allah, je m’approche à toi à travers les prières sur Sayduna Muhamad, ton esclave, ton prophète et ton messager, le maitre des messagers, qu’Allah répands sa priere et son salut sur lui et sur eux. En répondant à tes ordres, en croyant à ces paroles, en l’aimant, en se languissant de lui et en valorisant son importance. Par le fait,que Dieu prie sur lui et le salut, qu’il mérite tout cela. Je te demande que tu y acceptes selon ta grâce, je te demande de me faire appartenir à tes serviteurs vertueux ainsi de me faire reussir à la lire d’une facon continue par l’honneur de ton prophète avec toi, prière d'Allah sur Saïdina Mohammad, sa famille et ses compagnons.</p>
+				<p class="lang arabicText" lang="ar" dir="">أَسْتَغْفِرُ اللَّهَ العَظِيمَ (٣)</p>
+				<p class="lang translit" style="display: none;" lang="en" dir="ltr">AstaghfiruLlāha alʿaẓīm (3).</p>
+				<p class="lang transID" style="display: none;" lang="id" dir="ltr">Aku memohon ampunan dari Allah SWT (3)</p>
+				<p class="lang trans" style="display: none;" lang="en" dir="ltr">I ask Allah for forgiveness (3).</p>
+				<p class="lang transFR" style="display: none;" lang="fr" dir="ltr">Je demande pardon à Allah le majestueux.</p>
+				<p class="lang arabicText" lang="ar" dir="">سُبْحَانَ اللَّهِ، وَالحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللهُ، وَاللهُ أَكْبَرُ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا باللهِ العَلِيِّ العَظِيم (٣)</p>
+				<p class="lang translit" style="display: none;" lang="en" dir="ltr">SubḥānAllāhi, walḥamduliLlāhi, wa lā ilaha illAllāhu, wAllāhu akbaru, wa lā hawla wa lā quwwata illa biLlahil ʿaliyyil ʿaẓīm (3).</p>
+				<p class="lang transID" style="display: none;" lang="id" dir="ltr">Kemenangan bagi Allah, Segala Puja bagi Allah, Tidak ada Tuhan selain Allah. Allah yang Maha Besar. Tidak ada daya dan kekuatan selain dari Allah Yang Maha Kuasa, Maha Besar</p>
+				<p class="lang trans" style="display: none;" lang="en" dir="ltr">Glory be to Allah, Praise be to Allah. There is no god except Allah. Allah is the Greatest. There is no power nor strength except by Allah the Lofty, the Great.</p>
+				<p class="lang transFR" style="display: none;" lang="fr" dir="ltr">Gloire à Allah, Louange à Allah.</p>
+				<p class="lang arabicText" lang="ar" dir="">حَسْبِيَ اللهُ وَنِعْمَ الوَكِيلُ (٣)</p>
+				<p class="lang translit" style="display: none;" lang="en" dir="ltr">ḤasbiyAllāhu wa niʿmal wakīl (3).</p>
+				<p class="lang transID" style="display: none;" lang="id" dir="ltr">Allah mencukupkan rezekyku dan Dia adalah Pelindung Terbaik.</p>
+				<p class="lang trans" style="display: none;" lang="en" dir="ltr">Allah suffices me and he is the best Protector.</p>
+				<p class="lang transFR" style="display: none;" lang="fr" dir="ltr">Allah est suffisant pour moi et Il est mon meilleur protecteur.</p>
+				<p class="lang arabicText" lang="ar" dir="">أَعُوذُ بِااللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ. بِسْمِ اللهِ الرَّحْمنِ الرَّحِيِمِ.<br> &#64831;<span> قُلْ هُوَ اللَّـهُ أَحَدٌ . اللَّـهُ الصَّمَدُ . لَمْ يَلِدْ وَلَمْ يُولَدْ . وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ .</span>&#64830;(٣)</p>
+				<p class="lang translit" style="display: none;" lang="en" dir="ltr">Aʿūdhu biLlāhi minash shayṭānir rajīm. BismiLlāhir raḥmānir raḥīm. <span>Qul huwaLlāhu aḥad. Allāhuṣ ṣamad. Lam yalid walam yūlad. Walam yakullahu kufuwan aḥad. </span>(3)</p>
+				<p class="lang transID" style="display: none;" lang="id" dir="ltr">Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. <br> Katakanlah (Muhammad), Dialah Allah, Yang Maha Esa. Allah tempat meminta segala sesuatu. (Allah) tidak beranak dan tidak pula diperanakkan. Dan tidak ada sesuatu yang setara dengan Dia.</p>
+				<p class="lang trans" style="display: none;" lang="en" dir="ltr">I seek refuge in Allah from the accursed Satan. In the name of Allah, Most Gracious, Most Merciful. Say: He is Allah, the One and Only; Allah, the Eternal, Absolute; He begetteth not, nor is He begotten; And there is none like unto Him. (3 times)</p>
+				<p class="lang transFR" style="display: none;" lang="fr" dir="ltr"> Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux. Je cherche refuge auprès d'Allah contre Satan le maudit, le lapidé. Dis: "Il est Allah, Unique. Allah, Le Seul à être imploré pour ce que nous désirons. Il n’a jamais engendré, n’a pas été engendré non plus. Et nul n’est égal à Lui." (3 fois)</p>
+				<p class="lang arabicText" lang="ar" dir="">بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+<br> &#64831;<span>
+قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ . مِن شَرِّ مَا خَلَقَ . وَمِن شَرِّ غَاسِقٍ إِذَا. وَقَبَ . وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ . وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ .
+</span> &#64830;<br>
+بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+<br> &#64831;<span>
+قُلْ أَعُوذُ بِرَبِّ النَّاسِ . مَلِكِ النَّاسِ . إِلَـٰهِ النَّاسِ . مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ . الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ . مِنَ الْجِنَّةِ وَالنَّاسِ .
+</span>&#64830;</p>
+				<p class="lang translit" style="display: none;" lang="en" dir="ltr">BismiLlāhir raḥmānir raḥīm.<br><span> Qul aʿūdhu birabbil falaq. Min sharri mā khalaq. Wa min sharri ghāsiqin idha waqab. Wa min sharrin naffāthāti fīl ʿuqad. Wamin sharri ḥāsidin idhā ḥasad.</span><br>BismiLlāhir raḥmānir raḥīm.<br><span>Qul aʿūdhu birabbin nās. Malikin nās. Ilāhin nās. Min sharril waswāsil khannās. Alladhī yuwaswisu fī ṣudurin nās. Minal jinnati wannās.</span></p>
+				<p class="lang transID" style="display: none;" lang="id" dir="ltr">Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.<br> Katakanlah, Aku berlindung kepada Tuhan yang menguasai subuh (fajar), dari kejahatan (makhluk yang) Dia ciptakan, dan dari kejahatan malam apabila telah gelap gulita, dan dari kejahatan (perempuan-perempuan) penyihir yang meniup pada buhul-buhul (talinya), dan dari kejahatan orang yang dengki apabila dia dengki. <br>Dengan nama Allah Yang Maha Pengasih, Maha Penyayang.<br>Katakanlah, Aku berlindung kepada Tuhannya manusia,Raja manusia,sembahan manusia,dari kejahatan (bisikan) setan yang bersembunyi, yang membisikkan (kejahatan) ke dalam dada manusia, dari (golongan) jin dan manusia.</p>
+				<p class="lang trans" style="display: none;" lang="en" dir="ltr">In the name of Allah, Most Gracious, Most Merciful.<br>Say: I seek refuge with the Lord of the Dawn. From the mischief of created things; From the mischief of Darkness as it overspreads; From the mischief of those who practise secret arts; And from the mischief of the envious one as he practises envy. <br>In the name of Allah, Most Gracious, Most Merciful.<br>Say: I seek refuge with the Lord and Cherisher of Mankind. The King of Mankind, the God of Mankind - from the evil of the sneaking whisperer, who whispers into the hearts of Mankind, among Jinns and among men.</p>
+				<p class="lang transFR" style="display: none;" lang="fr" dir="ltr">Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux. <br> Dis: "Je cherche protection auprès du Seigneur de l’aube naissante, contre le mal des êtres qu’Il a créés, contre le mal de l’obscurité quand elle s’approfondit, contre le mal de celles qui soufflent (les sorcières) sur les nœuds, et contre le mal de l’envieux quand il envie. <br> Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux. <br> Dis: "Je cherche protection auprès du Seigneur des hommes. Le Souverain des hommes, Dieu des hommes, contre le mal du mauvais conseiller, furtif, qui insuffle des mauvaises pensées dans les poitrines des hommes."</p>
+				<p class="lang arabicText" lang="ar" dir="">&#64831;<span>
+بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ . الْحَمْدُ لِلَّـهِ رَبِّ الْعَالَمِينَ . الرَّحْمَـٰنِ الرَّحِيمِ . مَالِكِ يَوْمِ الدِّينِ . إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ . اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ . صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ .
+</span> &#64830;</p>
+				<p class="lang translit" style="display: none;" lang="en" dir="ltr"><span>BismiLlāhir raḥmānir raḥīm. Alḥamdu liLlāhi rabbil ʿālamīn. Arraḥmānir raḥīm. Māliki yawmid dīn. Iyyāka naʿbudu wa iyyāka nastaʿīn. Ihdināṣ ṣirāṭal mustaqīm. Ṣirāṭal ladhīna anʿamta ʿalayhim ghayril maghḍūbi ʿalayhim walāḍ ḍāllīn.</span></p>
+				<p class="lang transID" style="display: none;" lang="id" dir="ltr">Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Segala puji bagi Allah, Tuhan seluruh alam, Yang Maha Pengasih, Maha Penyayang, Pemilik hari pembalasan. Hanya kepada Engkaulah kami menyembah dan hanya kepada Engkaulah kami mohon pertolongan. Tunjukilah kami jalan yang lurus, (yaitu) jalan orang-orang yang telah Engkau beri nikmat kepadanya; bukan (jalan) mereka yang dimurkai, dan bukan (pula jalan) mereka yang sesat.</p>
+				<p class="lang trans" style="display: none;" lang="en" dir="ltr">In the name of Allah, Most Gracious, Most Merciful. Praise be to Allah, the Cherisher and Sustainer of the worlds; Most Gracious, Most Merciful; Master of the Day of Judgment. Thee do we worship, and Thine aid we seek. Show us the straight way, the way of those on whom Thou hast bestowed Thy Grace, those whose (portion) is not wrath, and who go not astray.</p>
+				<p class="lang transFR" style="display: none;" lang="fr" dir="ltr">Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux. Louange à Allah, Seigneur de l’Univers. Le Tout Miséricordieux, le Très Miséricordieux, Maître du Jour de la Rétribution. C’est Toi [Seul] que nous adorons, et c’est Toi [Seul] dont nous implorons secours. Guide-nous dans le droit chemin, Le chemin de ceux que Tu as comblés de faveurs, non pas de ceux qui ont encouru Ta colère, ni des égarés.</p>
+				<p class="lang arabicText" lang="ar" dir="">بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+<br> &#64831;<span>
+  الم . ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ . الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ . وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ . أُولَـٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُولَـٰئِكَ هُمُ الْمُفْلِحُونَ .
+</span> &#64830;</p>
+				<p class="lang translit" style="display: none;" lang="en" dir="ltr">BismiLlāhir raḥmānir raḥīm.<br><span>Alif Lām Mīm. Dhālikal kitābu lā raybai fīh hudan lilmuttaqīn. Alladhīna yuʾminūna bilghaybi wayuqīmūnaṣ ṣalāta wamimmā razaqnāhum yunfiqūn. Walladhīna yuʾminūna bimā ʾunzila ilayka wamā ʾunzila min qablika wa bilākhirati hum yūqinūn. Ūlāʾika ʿalā hudam mir rabbihim wa ūlāʾika humul mufliḥūn.</span></p>
+				<p class="lang transID" style="display: none;" lang="id" dir="ltr">Dengan nama Allah Yang Maha Pengasih, Maha Penyayang. Alif Lam Mim,Kitab (Al-Qur'an) ini tidak ada keraguan padanya; petunjuk bagi mereka yang bertakwa,(yaitu) mereka yang beriman kepada yang gaib, melaksanakan shalat, dan menginfakkan sebagian rezeki yang Kami berikan kepada mereka,dan mereka yang beriman kepada (Al-Qur'an) yang diturunkan kepadamu (Muhammad) dan (kitab-kitab) yang telah diturunkan sebelum engkau, dan mereka yakin akan adanya akhirat.Merekalah yang mendapat petunjuk dari Tuhannya, dan mereka itulah orang-orang yang beruntung.</p>
+				<p class="lang trans" style="display: none;" lang="en" dir="ltr">In the name of Allah, Most Gracious, Most Merciful.<br> Alif. Lam. Meem. This is the Book; In it is guidance sure, without doubt, to those who fear Allah; Who believe in the Unseen, are steadfast in prayer, and spend out of what We have provided for them; And who believe in the Revelation sent to thee, and sent before thy time, and have the assurance of the Hereafter. They are on true guidance, from their Lord, and it is these who will prosper.</p>
+				<p class="lang transFR" style="display: none;" lang="fr" dir="ltr">Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux. <br>
+Alif, Lām, Mîm. Voici le Livre au sujet duquel il n’y a aucun doute, c’est un guide pour les pieux, Ceux qui croient à l’invisible et accomplissent la prière ( As-Ṣalāt ) et qui dépensent [dans l’obéissance à Allah] de ce que Nous leur avons attribué. Ceux qui croient à ce qui t’a été descendu (révélé) et à ce qui a été descendu avant toi et qui croient fermement à la vie future. Ceux-là sont sur le bon chemin de leur Seigneur, et ce sont eux qui réussissent (dans cette vie et dans la vie future).</p>
+			 
+		</div>
+</div>		
+		
+		
+
+
+		
+		
+		
+
+		<input name="animation" type="hidden">
+		<script src="assets/web/assets/jquery/jquery.min.js"></script>
+		<script src="assets/popper/popper.min.js"></script>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/smoothscroll/smooth-scroll.js"></script>
+		<script src="assets/tether/tether.min.js"></script>
+		<script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+		<script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+		<script src="assets/dropdown/js/nav-dropdown.js"></script>
+		<script src="assets/dropdown/js/navbar-dropdown.js"></script>
+		<script src="assets/theme/js/script.js"></script>
+		<script src="assets/js/scripts_v05.js"></script>
+		<!--<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div> -->
+	</body>
+</html>
